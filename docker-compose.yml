@@ -1,13 +1,12 @@
 version: '3.5'
 services:
   pingos:
-    build: .
-    image: "pingos"
+    image: registry.cn-shenzhen.aliyuncs.com/chenjianyi/pingos:1
     volumes:
       - ./conf/nginx.conf:/usr/local/pingos/conf/nginx.conf:ro
       - type: tmpfs
         target: /tmp
-    command: [./sbin/nginx, '-g', 'daemon off;'] 
+    command: [ ./sbin/nginx, '-g', 'daemon off;' ]
     network_mode: "host"
     privileged: true
     restart: always
